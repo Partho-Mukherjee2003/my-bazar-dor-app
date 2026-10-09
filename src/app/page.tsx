@@ -1,6 +1,7 @@
 import AllProducts from "@/Components/AllProductsSection/AllProducts";
 import BannerPage from "@/Components/BannerPage";
 import Marquee from "@/Components/Marquee";
+import PriceUpDown from "@/Components/PriceUpDown";
 
 import { Suspense } from "react";
 
@@ -15,7 +16,7 @@ export default function Home() {
         <Marquee />
 
         <BannerPage />
-
+        <PriceUpDown/>
         <AllProducts />
       </Suspense>
     </div>

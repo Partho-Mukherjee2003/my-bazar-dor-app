@@ -11,7 +11,7 @@ const AllProducts = async () => {
       <p className="text-lg pb-3 text-gray-600">
         মোট {products.length}টি পণ্য দেখানো হচ্ছে
       </p>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => (
           <Product key={product.id} product={product}></Product>
         ))}
