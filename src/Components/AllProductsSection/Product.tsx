@@ -9,6 +9,8 @@ const unitBn: Record<string, string> = {
 };
 
 const Product = ({ product }: { product: AllProductsType }) => {
+  const pct = product.change.pct;
+  const unchanged = pct === 0;
   const up = product.change.dir === "up";
 
   return (
@@ -41,11 +43,11 @@ const Product = ({ product }: { product: AllProductsType }) => {
         </div>
         <span
           className={`shrink-0 rounded-full bg-gray-100 px-3 py-1.5 text-xs font-bold sm:text-sm ${
-            up ? "text-red-600" : "text-green-600"
+            unchanged ? "text-black" : up ? "text-red-600" : "text-green-600"
           }`}
         >
-          {up ? "▲" : "▼"}{" "}
-          {Math.abs(product.change.pct).toLocaleString("bn-BD")}%
+          {!unchanged && (up ? "▲ " : "▼ ")}
+          {Math.abs(pct).toLocaleString("bn-BD")}%
         </span>
       </div>
     </div>

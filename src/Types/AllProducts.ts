@@ -8,6 +8,8 @@ interface AllProductsType {
   unit: string;
   change: { dir: string; pct: number };
   today: number;
+  categorynameBn:string;
+  categoryNameBn:string;
 }
 
 export default AllProductsType;

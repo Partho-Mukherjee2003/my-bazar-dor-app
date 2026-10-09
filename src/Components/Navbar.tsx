@@ -3,6 +3,7 @@ import logo from "../assets/logo-icon.png";
 import Image from "next/image";
 import NavbarLinks from "./Navlinks";
 import Link from "next/link";
+import Marquee from "./Marquee";
 
 
 const date = new Date().toLocaleDateString("bn-BD", {
@@ -57,6 +58,7 @@ const Navbar = () => {
         }
       >
         <NavbarLinks />
+        <Marquee/>
       </Suspense>
     </header>
   );
