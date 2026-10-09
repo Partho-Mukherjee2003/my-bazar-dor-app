@@ -18,9 +18,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-theme="light"
-      className={`${notoSerifBengali.className} h-full antialiased`}
+
+      className={`${notoSerifBengali.className} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col container mx-auto ">
+      <body className="min-h-full flex flex-col  ">
         <Navbar />
 
         {children}

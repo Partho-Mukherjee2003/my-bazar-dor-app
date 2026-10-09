@@ -1,6 +1,7 @@
 import React from "react";
 import hero from "../assets/bazar-hero.png";
 import Image from "next/image";
+import Link from "next/link"
 
 const date = new Date().toLocaleDateString("bn-BD", {
   weekday: "long",
@@ -25,9 +26,11 @@ const BannerPage = () => {
             চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক
             বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
           </p>
-          <button className="mt-6 cursor-pointer rounded-lg bg-green-700 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-green-900/20 transition duration-200 hover:-translate-y-0.5 hover:bg-green-800 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2 active:translate-y-0 active:scale-95">
-            সব পণ্য দেখুন
-          </button>
+          <Link href="#AllProductSection">
+            <button className="mt-6 cursor-pointer rounded-lg bg-green-700 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-green-900/20 transition duration-200 hover:-translate-y-0.5 hover:bg-green-800 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2 active:translate-y-0 active:scale-95">
+              সব পণ্য দেখুন
+            </button>
+          </Link>
         </div>
 
         {/* Image side */}
