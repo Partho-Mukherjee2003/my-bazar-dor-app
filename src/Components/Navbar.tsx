@@ -49,7 +49,13 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      <Suspense>
+      <Suspense
+        fallback={
+          <div className="flex w-full items-center justify-center border-t border-gray-200 py-3">
+            <span className="loading loading-spinner text-success"></span>
+          </div>
+        }
+      >
         <NavbarLinks />
       </Suspense>
     </header>
