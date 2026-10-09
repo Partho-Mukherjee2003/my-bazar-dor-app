@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import type AllProductsType from "@/Types/AllProducts";
 import Product from "@/Components/AllProductsSection/Product";
