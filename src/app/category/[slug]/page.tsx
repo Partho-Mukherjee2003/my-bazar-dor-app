@@ -1,14 +1,9 @@
-import React from "react";
+import React, { Suspense } from "react";
 import type AllProductsType from "@/Types/AllProducts";
-import Product from "@/Components/AllProductsSection/Product";
+import Sortby from "@/Components/Sortby";
 
-const CategoryPage = async ({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) => {
+const CategoryContent = async ({params,}: {params: Promise<{ slug: string }>}) => {
   const { slug } = await params;
-
   const res = await fetch(
     `https://api.api-store.workers.dev/api/bazardor/products?category=${slug}`,
   );
@@ -32,34 +27,17 @@ const CategoryPage = async ({
         </div>
       </div>
 
-      {/* Sort card */}
-      <div className="flex items-center justify-end gap-3 rounded-3xl border border-gray-200 bg-white/80 px-4 py-3 shadow-sm sm:px-6 sm:py-4">
-        <label htmlFor="sort" className="text-sm text-gray-600">
-          সাজান
-        </label>
-        <select
-          id="sort"
-          className="cursor-pointer rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 transition duration-200 hover:border-green-600 focus:border-green-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600"
-        >
-          <option>ডিফল্ট</option>
-          <option>দাম কম থেকে বেশি</option>
-          <option>দাম বেশি থেকে কম</option>
-          <option>পরিবর্তন বেশি</option>
-        </select>
-      </div>
-
-      {/* Count */}
-      <p className="text-xs text-gray-600 sm:text-sm">
-        মোট {products.length.toLocaleString("bn-BD")}টি পণ্য দেখানো হচ্ছে
-      </p>
-
-      {/* Grid */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {products.map((product) => (
-          <Product key={product.id} product={product} />
-        ))}
-      </div>
+      {/* Sort + count + grid */}
+      <Sortby products={products} />
     </div>
+  );
+};
+
+const CategoryPage = ({ params }: { params: Promise<{ slug: string }> }) => {
+  return (
+    <Suspense fallback={<p className="p-6">লোড হচ্ছে...</p>}>
+      <CategoryContent params={params} />
+    </Suspense>
   );
 };
 

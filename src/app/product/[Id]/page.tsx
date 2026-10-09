@@ -35,6 +35,7 @@ const CardDetailsPage = async ({
   params: Promise<{ Id: string }>;
 }) => {
   const { Id } = await params;
+
   const res = await fetch(
     `https://api.api-store.workers.dev/api/bazardor/products/${Id}`,
   );
