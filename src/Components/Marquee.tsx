@@ -2,7 +2,7 @@ import MarqueeText from "react-marquee-text";
 import "react-marquee-text/dist/styles.css";
 import React from "react";
 import type MarqueeType from "@/Types/Marquee";
-
+import Link from 'next/link'
 const Marquee = async () => {
   const res = await fetch(
     "https://api.api-store.workers.dev/api/bazardor/products",
@@ -13,9 +13,10 @@ const Marquee = async () => {
     <section className="w-full border-b border-gray-200 bg-white py-3">
       <MarqueeText direction="right" duration={15} pauseOnHover>
         {products.map((product) => (
-          <div
+          <Link
             key={product.id}
-            className="mx-5 flex cursor-pointer items-center gap-2 whitespace-nowrap transition-opacity duration-200 hover:opacity-70"
+            href={`/product/${product.id}`}
+            className="mx-5 flex items-center gap-2 whitespace-nowrap transition-opacity duration-200 hover:opacity-70"
           >
             <span className="text-xl">{product.categoryIcon}</span>
             <span className="text-base font-bold text-gray-900 sm:text-lg">
@@ -32,7 +33,7 @@ const Marquee = async () => {
               {product.change.dir === "up" ? "▲" : "▼"}{" "}
               {Math.abs(product.change.pct).toLocaleString("bn-BD")}%
             </span>
-          </div>
+          </Link>
         ))}
       </MarqueeText>
     </section>

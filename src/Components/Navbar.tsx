@@ -42,12 +42,16 @@ const Navbar = () => {
 
         {/* Right: actions */}
         <div className="flex shrink-0 items-center gap-1 sm:gap-3">
-          <button className="cursor-pointer rounded-lg px-3 py-2 text-sm font-semibold text-gray-900 transition duration-200 hover:bg-green-50 hover:text-green-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 active:scale-95 sm:px-4">
-            সাইন ইন
-          </button>
-          <button className="cursor-pointer rounded-lg bg-green-700 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-green-900/20 transition duration-200 hover:-translate-y-0.5 hover:bg-green-800 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2 active:translate-y-0 active:scale-95 sm:px-5 sm:py-2.5">
-            সাইন আপ
-          </button>
+          <Link href="/Sign-in">
+            <button className="cursor-pointer rounded-lg px-3 py-2 text-sm font-semibold text-gray-900 transition duration-200 hover:bg-green-50 hover:text-green-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 active:scale-95 sm:px-4">
+              সাইন ইন
+            </button>
+          </Link>
+          <Link href="/Sign-up">
+            <button className="cursor-pointer rounded-lg bg-green-700 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-green-900/20 transition duration-200 hover:-translate-y-0.5 hover:bg-green-800 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2 active:translate-y-0 active:scale-95 sm:px-5 sm:py-2.5">
+              সাইন আপ
+            </button>
+          </Link>
         </div>
       </div>
       <Suspense
@@ -58,7 +62,7 @@ const Navbar = () => {
         }
       >
         <NavbarLinks />
-        <Marquee/>
+        <Marquee />
       </Suspense>
     </header>
   );

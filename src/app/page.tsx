@@ -1,6 +1,5 @@
 import AllProducts from "@/Components/AllProductsSection/AllProducts";
 import BannerPage from "@/Components/BannerPage";
-import Marquee from "@/Components/Marquee";
 import PriceUpDown from "@/Components/PriceUpDown";
 
 import { Suspense } from "react";
@@ -13,7 +12,7 @@ export default function Home() {
           <div className="flex min-h-[60vh] w-full items-center justify-center">
             <span className="loading  loading-ring text-4xl loading-xl text-green-700"></span>
           </div>}>
-        
+
 
         <BannerPage />
         <PriceUpDown/>
