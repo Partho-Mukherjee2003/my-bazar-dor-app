@@ -5,7 +5,8 @@ import type CategoryType from '@/Types/Category'
 
 const Navlinks = async () => {
   const res = await fetch(
-    "https://api.abcz.workers.dev/api/bazardor/categories",
+    // "https://api.abcz.workers.dev/api/bazardor/categories"
+    "https://openapi.programming-hero.com/api/bazardor/categories",
   );
   const categories = await res.json();
   return (

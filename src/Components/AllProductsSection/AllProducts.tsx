@@ -3,7 +3,11 @@ import type AllProductsType from "@/Types/AllProducts";
 import Product from '@/Components/AllProductsSection/Product'
 
 const AllProducts = async () => {
-  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+  const res = await fetch(
+    //"https://api.abcz.workers.dev/api/bazardor/products"
+    'https://openapi.programming-hero.com/api/bazardor/products'
+
+  );
   const products: AllProductsType[] = await res.json();
   return (
     <div id='AllProductSection' className="mx-auto container px-4 py-8 sm:px-6 lg:px-8">

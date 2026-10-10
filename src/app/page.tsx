@@ -1,14 +1,13 @@
 import AllProducts from "@/Components/AllProductsSection/AllProducts";
 import BannerPage from "@/Components/BannerPage";
 import PriceUpDown from "@/Components/PriceUpDown";
-import { ToastContainer } from "react-toastify";
 
 import { Suspense } from "react";
 
 export default function Home() {
   return (
     <div>
-      
+
       <Suspense
 
         fallback={
