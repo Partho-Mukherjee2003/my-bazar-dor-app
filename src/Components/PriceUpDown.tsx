@@ -4,7 +4,7 @@ import Product from './AllProductsSection/Product';
 
 const PriceUpDown = async () => {
   const res = await fetch(
-    "https://api.api-store.workers.dev/api/bazardor/products",
+    "https://api.abcz.workers.dev/api/bazardor/products",
   );
   const products: AllProductsType[] = await res.json();
   const upPriceProducts = products.filter(p => p.change.dir === 'up').slice(0,6);

@@ -1,5 +1,6 @@
 import { authClient } from '@/lib/auth-client';
 import React from 'react';
+import { toast } from 'react-toastify';
 
 
 const SignWithGithub = () => {
@@ -7,6 +8,7 @@ const SignWithGithub = () => {
     const data = await authClient.signIn.social({
       provider:'github'
     })
+    toast.success("সফলভাবে সাইন ইন হয়েছে");
   }
   return (
     <div>
