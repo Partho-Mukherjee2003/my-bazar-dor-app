@@ -31,7 +31,7 @@ export default function SignInPage() {
     const resdata = Object.fromEntries(formData.entries());
     // Convert FormData to plain object
 
-    console.log(resdata);
+    // console.log(resdata);
     const {data,error} = await authClient.signIn.email({
       email:resdata.email as string,
       password:resdata.password as string,

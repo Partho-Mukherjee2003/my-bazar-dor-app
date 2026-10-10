@@ -37,7 +37,7 @@ const CardDetailsPage = async ({
   const { Id } = await params;
 
   const res = await fetch(
-    `https://api.api-store.workers.dev/api/bazardor/products/${Id}`,
+    `https://api.abcz.workers.dev/api/bazardor/products/${Id}`,
   );
   const p: ProductDetails = await res.json();
 

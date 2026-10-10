@@ -5,7 +5,7 @@ import Sortby from "@/Components/Sortby";
 const CategoryContent = async ({params,}: {params: Promise<{ slug: string }>}) => {
   const { slug } = await params;
   const res = await fetch(
-    `https://api.api-store.workers.dev/api/bazardor/products?category=${slug}`,
+    `https://api.abcz.workers.dev/api/bazardor/products?category=${slug}`,
   );
   const products: AllProductsType[] = await res.json();
 
