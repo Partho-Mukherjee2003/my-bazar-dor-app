@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/Components/Navbar";
 import FooterPage from "@/Components/FooterPage";
 import { Suspense } from "react";
+import { ToastContainer } from "react-toastify";
 
 const notoSerifBengali = Noto_Serif_Bengali({
 
@@ -19,16 +20,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-theme="light"
-
+      data-scroll-behavior="smooth"
       className={`${notoSerifBengali.className} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col  ">
+        <ToastContainer/>
         <Suspense>
-        <Navbar />
+          <Navbar />
 
-        {children}
+          {children}
 
-        <FooterPage />
+          <FooterPage />
         </Suspense>
       </body>
     </html>

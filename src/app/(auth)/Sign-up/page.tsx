@@ -1,5 +1,5 @@
 "use client";
-
+import { authClient } from "@/lib/auth-client";
 import {
   Button,
   Description,
@@ -10,6 +10,8 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const inputClass =
   "mt-1.5 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-600/20";
@@ -17,13 +19,33 @@ const labelClass = "text-sm font-semibold text-gray-900";
 const errorClass = "mt-1 text-xs text-red-600";
 
 export default function SignUpPage() {
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const router = useRouter();
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+    const resdata = Object.fromEntries(formData.entries());
     // Convert FormData to plain object
+    console.log(resdata);
+    // confirm password check
+    if (resdata.password !== resdata.conPassword) {
+      toast.warning("Wrong confirm password");
+      return;
+    }
+    const { data, error } = await authClient.signUp.email({
+      name: resdata.name as string,
+      email: resdata.email as string,
+      password: resdata.password as string,
+      callbackURL: "/" as string,
+    });
 
-    console.log(data);
+  if (data) {
+    toast.success("অ্যাকাউন্ট তৈরি হয়েছে");
+    router.push("/");
+  }
+
+  if (error) {
+      toast.error(error.message ?? "সাইন আপ করা যায়নি");
+    }
   };
 
   return (
@@ -42,7 +64,7 @@ export default function SignUpPage() {
       <div className="w-full max-w-md rounded-3xl border border-gray-200 bg-white p-5 shadow-sm sm:p-8">
         <Form className="flex w-full flex-col gap-4" onSubmit={onSubmit}>
           {/* Name text Field */}
-          <TextField isRequired name="text" type="text">
+          <TextField isRequired name="name" type="text">
             <Label className={labelClass}>নাম</Label>
             <Input className={inputClass} />
             <FieldError className={errorClass} />
@@ -95,7 +117,12 @@ export default function SignUpPage() {
           </TextField>
 
           {/* Confirm text field */}
-          <TextField isRequired minLength={8} name="password" type="password">
+          <TextField
+            isRequired
+            minLength={8}
+            name="conPassword"
+            type="password"
+          >
             <Label className={labelClass}>পাসওয়ার্ড নিশ্চিত করুন</Label>
             <Input className={inputClass} />
             <FieldError className={errorClass} />

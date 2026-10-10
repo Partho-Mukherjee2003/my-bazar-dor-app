@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import {
   Button,
   Description,
@@ -17,13 +18,14 @@ const labelClass = "text-sm font-semibold text-gray-900";
 const errorClass = "mt-1 text-xs text-red-600";
 
 export default function SignInPage() {
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+    const resdata = Object.fromEntries(formData.entries());
     // Convert FormData to plain object
 
-    console.log(data);
+    console.log(resdata);
+    
   };
 
   return (
