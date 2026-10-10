@@ -8,7 +8,7 @@ import { Suspense } from "react";
 export default function Home() {
   return (
     <div>
-      <ToastContainer/>
+      
       <Suspense
 
         fallback={

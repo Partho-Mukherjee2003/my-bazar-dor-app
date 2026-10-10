@@ -2,15 +2,15 @@
 import React from "react";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
-import { toast } from "react-toastify";
 import Image from 'next/image'
+import { toastLogout } from "@/lib/toast";
 
 
 const AuthInfoPage = () => {
   // Log out function
   const handelLogout = async () => {
     await authClient.signOut();
-    toast.success("Logout succesfully");
+    toastLogout();
   };
 
   const { data: session } = authClient.useSession();
@@ -29,6 +29,8 @@ const AuthInfoPage = () => {
             {user?.image ? (
               <Image
                 src={user.image}
+                width={200}
+                height={300}
                 alt={user?.name}
                 className="size-9 rounded-full object-cover sm:size-10"
               />
@@ -54,6 +56,8 @@ const AuthInfoPage = () => {
                   <Image
                     src={user.image}
                     alt={user?.name}
+                    width={200}
+                    height={300}
                     className="size-12 shrink-0 rounded-full object-cover"
                   />
                 ) : (

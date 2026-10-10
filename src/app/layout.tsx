@@ -24,10 +24,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${notoSerifBengali.className} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col  ">
-        <ToastContainer/>
         <Suspense>
           <Navbar />
 
+        <ToastContainer/>
           {children}
 
           <FooterPage />
